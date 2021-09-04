@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="app" style="text-align: center">
+    <h1 style="font-family: Arial, Helvetica, sans-serif">GIT-SEARCH</h1>
+    <input
+      class="username-field-input"
+      style="margin-top: 1em"
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="username"
+    />
+    <button class="username-button-validation" (click)="onClick(username)">
+      Search
+    </button>
+  </div>
+
+  <div class="body">
+    <h2 class="title">Repositories found :</h2>
+    <div *ngFor="let repo of repos$ | async" class="card">
+      <h1 class="one-repo"> {{ repo.name }}</h1>
+      <a style='color: black' href={{repo.clone_url}} class="link-ref">View on github</a>
+    </div>
+  </div>
+</div>
